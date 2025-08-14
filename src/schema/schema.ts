@@ -12,16 +12,17 @@ export const freelancerSchema=z.object({
     }),
     remoteWork:z.boolean(),
 
-    //need to work on only string
     startDate:z.string().min(1,"start data is required"),
     hoursPerWeek:z.number().min(20,"Minimum 20 hour").max(60,"Maximum 60 hours a week is required"),
     bio: z.string().min(10, 'Bio must be at least 10 characters'),
-      profileImage: z.instanceof(FileList)
+    profileImage: z.instanceof(FileList)
     .refine((files) => files.length > 0, 'Profile image is required')
     .refine((files) => files[0]?.size <= 2 * 1024 * 1024, 'File size must be less than 2MB')
     .refine(
       (files) => ['image/jpeg', 'image/png'].includes(files[0]?.type),
       'Only JPEG and PNG images are allowed'
     ),
+     newsletter: z.boolean(),
+
 
 })

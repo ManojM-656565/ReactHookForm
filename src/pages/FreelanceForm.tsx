@@ -193,16 +193,37 @@ export default function FreelanceForm() {
             {errors.bio && <p className="text-red-500">{errors.bio.message}</p>}
           </div>
         </div>
-        <div>
-            <label>Profile Image</label>
+         <div className="border p-4 rounded">
+          <h3 className="text-xl font-semibold mb-2">Portfolio</h3>
+          <div>
+            <label className="block">Profile Image</label>
             <input
-            type="file"
-            accept="image/jpeg,image/png"
-            {...register("profileImage")}
+              type="file"
+              accept="image/jpeg,image/png"
+              {...register("profileImage")}
+              className="border p-2 w-full"
             />
-            {errors.profileImage &&(
-                <p>{errors.profileImage.message}</p>
+            {errors.profileImage && (
+              <p className="text-red-500">{errors.profileImage.message}</p>
             )}
+          </div>
+           {/* Preferences */}
+
+        </div>
+        <div className="border p-4 rounded">
+          <h2 className="text-xl font-semibold mb-2">Preferences</h2>
+          <div>
+            <label className="flex items-center">
+              <input
+                type="checkbox"
+                {...register('newsletter')}
+                className="form-checkbox"
+              />
+              <span className="ml-2">
+                Subscribe to Newsletter
+              </span>
+            </label>
+          </div>
         </div>
 
         <button
