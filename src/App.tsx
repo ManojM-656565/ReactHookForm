@@ -1,12 +1,14 @@
 
 import './App.css'
-import MultiStepForm from './pages/MultiStepForm'
+import FreelanceForm from './pages/FreelanceForm'
+
 
 function App() {
 
   return (
     <div className='p 10'>
-    <MultiStepForm/>
+    {/* <MultiStepForm/> */}
+    <FreelanceForm/>
     </div>
   )
 }

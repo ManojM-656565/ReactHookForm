@@ -11,7 +11,7 @@ const emailUniqueCheck = async (email: string) => {
 const step1Schema = z.object({
   fullName: z.string().min(3, "Full name must have at least 3 characters"),
   email: z
-    .string()
+    
     .email("Invalid email address")
     .refine(async (val) => await emailUniqueCheck(val), {
       message: "Email already taken",
@@ -332,7 +332,7 @@ export default function MultiStepForm() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 font-sans">
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-2xl">
-        <h2 className="text-2xl font-bold mb-6 text-center">Onboarding Form - Step {currentStep + 1}</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">Step {currentStep + 1}</h2>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(onSubmit)}>
             {steps[currentStep]}
